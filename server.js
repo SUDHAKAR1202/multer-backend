@@ -40,6 +40,10 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     }
 });
 
+app.get('/', (req,res)=> {
+    res.send('Backend is working!');
+})
+
 app.get("/files", async (req, res) => {
     try {
         const files = await File.find().sort({ uploadDate: -1 });
